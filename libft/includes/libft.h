@@ -6,7 +6,7 @@
 /*   By: femaury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 15:07:51 by femaury           #+#    #+#             */
-/*   Updated: 2018/04/28 12:47:09 by femaury          ###   ########.fr       */
+/*   Updated: 2018/05/09 12:00:31 by femaury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct	s_list
 {
 	void			*content;
+	void			*content_ptr;
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
@@ -50,6 +51,7 @@ size_t			ft_strtablen(char **s);
 size_t			ft_strtablen_at(char **s, int i, int j);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strdup(const char *s1);
+char			*ft_strndup(const char *s1, size_t len);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strcat(char *s1, const char *s2);
@@ -72,15 +74,16 @@ char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strnjoin(char const *s1, char const *s2, size_t len);
 char			*ft_strtrim(char const *s);
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
-void			ft_putstrnl(char const *s);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
+void			ft_putlst(t_list *lst);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);

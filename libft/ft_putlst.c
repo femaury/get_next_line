@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrnl.c                                      :+:      :+:    :+:   */
+/*   ft_putlst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: femaury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/25 13:03:50 by femaury           #+#    #+#             */
-/*   Updated: 2018/04/25 13:08:50 by femaury          ###   ########.fr       */
+/*   Created: 2018/04/30 16:35:35 by femaury           #+#    #+#             */
+/*   Updated: 2018/04/30 16:53:23 by femaury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrnl(char const *s)
+void	ft_putlst(t_list *lst)
 {
-	ft_putstr(s);
-	write(1, "\n", 1);
+	t_list	*curr;
+
+	curr = lst;
+	while (curr)
+	{
+		write(1, curr->content, curr->content_size);
+		curr = curr->next;
+	}
 }

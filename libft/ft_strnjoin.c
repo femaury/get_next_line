@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: femaury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 15:06:58 by femaury           #+#    #+#             */
-/*   Updated: 2018/05/09 12:01:00 by femaury          ###   ########.fr       */
+/*   Created: 2018/04/17 17:50:38 by femaury           #+#    #+#             */
+/*   Updated: 2018/05/07 12:34:14 by femaury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+char	*ft_strnjoin(char const *s1, char const *s2, size_t len)
 {
 	unsigned int	i;
-	t_list			*new;
+	unsigned int	j;
+	char			*new;
 
-	i = 0;
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	if (content && content_size)
+	if (!s1)
 	{
-		if (!(new->content = malloc(content_size)))
+		if (!(new = (char *)malloc(len + 1)))
 			return (NULL);
-		while (i < content_size)
-		{
-			*(char *)(new->content + i) = *(char *)(content + i);
-			i++;
-		}
-		new->content_size = content_size;
+		return ((char *)ft_memmove(new, s2, len));
 	}
-	else
+	if (!s2 || !len)
+		return ((char *)s1);
+	if (!(new = (char *)malloc(ft_strlen(s1) + len + 1)))
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
 	{
-		new->content = NULL;
-		new->content_size = 0;
+		new[i] = s1[i];
+		i++;
 	}
-	new->content_ptr = new->content;
-	new->next = NULL;
+	while (s2[j] && j < len)
+		new[i++] = s2[j++];
+	new[i] = '\0';
 	return (new);
 }

@@ -6,7 +6,7 @@
 #    By: femaury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/18 20:03:09 by femaury           #+#    #+#              #
-#    Updated: 2018/04/28 12:47:45 by femaury          ###   ########.fr        #
+#    Updated: 2018/05/07 12:33:47 by femaury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,14 @@ SRC_NAME = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		   ft_toupper.c ft_itoa.c ft_strncpy.c ft_lstadd.c ft_lstdel.c \
 		   ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c ft_lstsize.c \
 		   ft_lstrev.c ft_lstfind_content.c ft_lstfind_size.c ft_itoa_base.c \
-		   ft_putstrnl.c ft_strtablen.c ft_strtablen_at.c ft_sqrt.c
+		   ft_putlst.c ft_strtablen.c ft_strtablen_at.c ft_sqrt.c \
+		   ft_strndup.c ft_strnjoin.c
 OBJ_PATH = .
 OBJ_NAME = $(SRC_NAME:.c=.o)
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 .PHONY: all, clean, fclean, re
 
